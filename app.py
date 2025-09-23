@@ -5,23 +5,15 @@ from email.mime.multipart import MIMEMultipart
 from flask import Flask, request, jsonify, g
 from flask_cors import CORS
 import sqlite3
-from datetime import datetime, timedelta
-from twilio.rest import Client
+from flask import Flask, request, jsonify, g
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 app.config.update(
     DATABASE='bookings.db',
-    BOOKINGS_PER_DAY_LIMIT=4
-)
-
-TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
-TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER')
-MY_PHONE_NUMBER = os.getenv('MY_PHONE_NUMBER')
-
-twilio_client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    BOOKINGS_PER_DAY_LIMIT
 
 EMAIL_HOST = os.getenv('smtp.mail.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
