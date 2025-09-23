@@ -14,6 +14,10 @@ CORS(app)  # Enable CORS for all routes
 app.config.update(
     DATABASE='bookings.db',
     BOOKINGS_PER_DAY_LIMIT
+)
+
+NOTIFY_PHONE_NUMBER = os.getenv('+17755071747')  # e.g. '+15555551234'
+
 
 EMAIL_HOST = os.getenv('smtp.mail.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
