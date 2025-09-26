@@ -412,48 +412,69 @@ span.flatpickr-weekday { color: var(--text-headings); }
       </div>
     </section>
 
-    <!-- Booking form -->
-    <section id="booking-form-section" class="reveal">
-      <div class="card booking">
-        <h3 class="section-title">Reservation Request</h3>
-        <form id="booking-form">
-          <div class="booking-grid">
-            <input name="name" type="text" placeholder="Your full name" required />
-            <input name="phone" type="tel" placeholder="Phone (optional)" />
-            <input name="email" type="email" placeholder="Email" required />
-            <input id="fp-datetime" name="datetime" placeholder="Select preferred date & time" required />
-            <select name="service" required>
-              <option value="">Select service</option>
-              <option>30 minutes</option>
-              <option>1 hour</option>
-              <option>2 hours</option>
-              <option>3 hours</option>
-              <option>4 hours</option>
-              <option>6 hours</option>
-              <option>Overnight</option>
-              <option>24 hours</option>
-              <option>Weekend</option>
-            </select>
-            <select name="location" required>
-              <option value="">Meeting location</option>
-              <option>Incall (My location)</option>
-              <option>Outcall (Your location)</option>
-              <option>Hotel</option>
-              <option>Event</option>
-            </select>
-            <textarea name="notes" class="full" placeholder="Special requests, preferences, or any other information you'd like to share..." rows="4"></textarea>
-          </div>
+    <!-- Booking Form -->
+<form id="booking-form" class="booking" style="max-width: 720px; margin: 0 auto;">
+  <div class="booking-grid">
+    <input id="booking-name" type="text" placeholder="Your Name" required />
+    <input id="booking-email" type="email" placeholder="Your Email" required />
+    <input id="booking-phone" type="tel" placeholder="Your Phone" />
+    <input id="booking-datetime" type="text" placeholder="Select Date & Time" required />
+    <input id="booking-service" type="text" placeholder="Service" required />
+    <input id="booking-location" type="text" placeholder="Location" />
+    <textarea id="booking-notes" placeholder="Additional Notes"></textarea>
+  </div>
+  <button type="submit" class="btn">Submit Booking</button>
+</form>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  flatpickr('#booking-datetime', {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today"
+  });
 
-          <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
-            <button type="submit" class="btn">Request Booking</button>
-            <div id="booking-status" class="status" aria-live="polite" style="display:none"></div>
-          </div>
+  const backendUrl = 'https://nikki-squirtss-backend.onrender.com'; // Change to your actual backend URL
 
-          <p style="margin-top:12px;color:var(--muted);font-size:.95rem">By submitting you confirm you are 21+ and consenting. All bookings are subject to availability and confirmation.</p>
-        </form>
-      </div>
-    </section>
-  </main>
+  // Fetch helper with error handling
+  async function fetchWithErrorHandling(url, options = {}) {
+    const res = await fetch(url, options);
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || 'Network error');
+    }
+    return res.json();
+  }
+
+  // Booking Submission
+  document.getElementById('booking-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.elements['booking-name'].value.trim(),
+      email: e.target.elements['booking-email'].value.trim(),
+      phone: e.target.elements['booking-phone'].value.trim(),
+      datetime: e.target.elements['booking-datetime'].value.trim(),
+      service: e.target.elements['booking-service'].value.trim(),
+      location: e.target.elements['booking-location'].value.trim(),
+      notes: e.target.elements['booking-notes'].value.trim()
+    };
+
+    if (!formData.name || !formData.email || !formData.datetime || !formData.service) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    try {
+      await fetchWithErrorHandling(`${backendUrl}/bookings`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      alert('Booking successfully submitted!');
+      e.target.reset();
+    } catch (err) {
+      alert('Failed to submit booking: ' + err.message);
+    }
+  });
 
   <footer>
     <div style="max-width:var(--maxw); margin:0 auto;padding:8px 16px">
