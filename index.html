@@ -360,16 +360,72 @@ span.flatpickr-weekday { color: var(--text-headings); }
     </div>
 
     <section id="reviews-section" class="card reveal" style="max-width: 720px; margin: 24px auto 48px; padding: 24px; border-radius: var(--radius); background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-      <h3 class="section-title" style="color: var(--text-headings); margin-bottom: 20px;">Customer Reviews</h3>
-      <div id="reviews-list" style="min-height: 120px; margin-bottom: 20px; color: var(--text-primary);">
-        <!-- Reviews will be dynamically loaded here -->
-      </div>
-      <form id="review-form" style="display: flex; flex-direction: column; gap: 12px;">
-        <input type="text" id="reviewer-name" placeholder="Your name" required style="padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body);">
-        <textarea id="review-text" placeholder="Write your review..." required rows="3" style="resize: vertical; padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body);"></textarea>
-        <button type="submit" class="btn" style="background: var(--accent); box-shadow: 0 4px 20px var(--glow-color); color: white; font-weight: 700; padding: 12px 18px; border: none; border-radius: var(--radius); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">Add Review</button>
-      </form>
-    </section>
+  <h3 class="section-title" style="color: var(--text-headings); margin-bottom: 20px;">Customer Reviews</h3>
+
+  <div id="reviews-list" style="min-height: 120px; margin-bottom: 20px; color: var(--text-primary);">
+    <!-- Reviews will be dynamically loaded here -->
+  </div>
+
+  <form id="review-form" style="display: flex; flex-direction: column; gap: 12px;">
+    <input type="text" id="reviewer-name" placeholder="Your name" required style="padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body);" />
+    <textarea id="review-text" placeholder="Write your review..." required rows="3" style="resize: vertical; padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body);"></textarea>
+    <button type="submit" class="btn" style="background: var(--accent); box-shadow: 0 4px 20px var(--glow-color); color: white; font-weight: 700; padding: 12px 18px; border: none; border-radius: var(--radius); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">Add Review</button>
+  </form>
+</section>
+
+<script>
+  const backendUrl = 'https://nikki-squirtss-backend.onrender.com';  // Replace with your Render backend URL
+
+  async function loadReviews() {
+    try {
+      const response = await fetch(backendUrl);
+      if (!response.ok) throw new Error('Failed to fetch reviews');
+      const reviews = await response.json();
+      const reviewsList = document.getElementById('reviews-list');
+      if (!reviewsList) return;
+      reviewsList.innerHTML = reviews
+        .map(r => `
+          <div class="review" style="margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+            <strong>${r.name}</strong> <small style="color: var(--muted); font-size: 0.85rem;">${new Date(r.created_at).toLocaleString()}</small>
+            <p style="margin-top: 4px;">${r.text}</p>
+          </div>`)
+        .join('');
+    } catch (error) {
+      console.error('Error loading reviews:', error);
+    }
+  }
+
+  document.getElementById('review-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const nameInput = document.getElementById('reviewer-name');
+    const textInput = document.getElementById('review-text');
+
+    if (!nameInput.value.trim() || !textInput.value.trim()) {
+      alert('Please enter your name and review text');
+      return;
+    }
+
+    try {
+      const response = await fetch(backendUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: nameInput.value.trim(), text: textInput.value.trim() }),
+      });
+      if (!response.ok) {
+        alert('Failed to submit review');
+        return;
+      }
+      nameInput.value = '';
+      textInput.value = '';
+      loadReviews();
+    } catch (error) {
+      alert('Error submitting review');
+      console.error(error);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', loadReviews);
+</script>
 
     <!-- about -->
     <section id="about" class="reveal">
