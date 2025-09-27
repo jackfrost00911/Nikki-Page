@@ -433,12 +433,13 @@ span.flatpickr-weekday { color: var(--text-headings); }
   </main>
 </div>
   <!-- Email Capture Form with Special Offer -->
-<form action="/submit-email" method="POST" style="max-width: 400px; margin: 20px auto; font-family: Arial, sans-serif; border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #f9f9f9;">
-  <label for="email" style="display: block; font-weight: bold; margin-bottom: 8px; color: #333;">
-    Subscribe for VIP Access & Free Monthly XXX Videos
+<!-- Refined Email Capture Form -->
+<form action="/submit-email" method="POST" style="max-width: 400px; margin: 30px auto; font-family: var(--font-body); background: var(--card); padding: 24px; border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+  <label for="email" style="display: block; font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--text-headings); margin-bottom: 12px;">
+    Join My VIP List & Enjoy Free Exclusive Content
   </label>
-  <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
-    Get early priority on highly sought-after availability slots plus exclusive free XXX video content every month.
+  <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 20px; line-height: 1.4;">
+    Subscribe now to receive priveleged access to my private video content—crafted especially for valued clients.You cannot find this content anywhere else!
   </p>
   <input 
     type="email" 
@@ -446,12 +447,18 @@ span.flatpickr-weekday { color: var(--text-headings); }
     name="email" 
     placeholder="Enter your email address" 
     required 
-    style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #bbb; border-radius: 4px; box-sizing: border-box;"
+    style="width: 100%; padding: 14px; font-size: 1rem; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius); background: var(--soft); color: var(--text-primary); transition: border-color 0.3s ease;"
+    onfocus="this.style.borderColor='var(--accent)'" 
+    onblur="this.style.borderColor='rgba(255, 255, 255, 0.15)'"
   >
   <button 
     type="submit" 
-    style="margin-top: 12px; width: 100%; background-color: #0073e6; color: white; font-size: 16px; padding: 10px; border: none; border-radius: 4px; cursor: pointer;"
-  >Subscribe Now</button>
+    style="margin-top: 20px; width: 100%; background: linear-gradient(90deg, var(--accent), #9b3b74); color: white; font-size: 1.1rem; font-weight: 700; padding: 14px; border: none; border-radius: var(--radius); cursor: pointer; box-shadow: 0 6px 20px var(--glow-color); transition: background 0.3s ease;"
+    onmouseover="this.style.background='linear-gradient(90deg, #9b3b74, var(--accent))'"
+    onmouseout="this.style.background='linear-gradient(90deg, var(--accent), #9b3b74)'"
+  >
+    Subscribe Now
+  </button>
 </form>
   <!-- JuicyAds v3.0 -->
 <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
