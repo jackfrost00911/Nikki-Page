@@ -356,10 +356,10 @@ span.flatpickr-weekday { color: var(--text-headings); }
      <!-- Refined Email Capture Form -->
 <form action="/submit-email" method="POST" style="max-width: 400px; margin: 30px auto; font-family: var(--font-body); background: var(--card); padding: 24px; border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
   <label for="email" style="display: block; font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--text-headings); margin-bottom: 12px;">
-    Unlock VIP Access & Exclusive Monthly Content
+    Join Our VIP List & Enjoy Exclusive XXX Content
   </label>
   <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 20px; line-height: 1.4;">
-    Subscribe to receive early notifications of limited availability, plus complimentary access to private monthly video content—crafted especially for valued clients.
+    Subscribe now to receive priveleged access to highly sought after dates and times, plus complimentary access to private monthly XXX video content—crafted especially for valued clients.
   </p>
   <input 
     type="email" 
@@ -719,6 +719,135 @@ Beyond companionship, I write about the industry, share thoughtful insights, and
     // Load existing reviews on page load
     fetchReviews();
   </script>
+  <!-- Timed Pop-up Email Capture Form - Professional & Themed -->
+<style>
+  #timedPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+    max-width: 90%;
+    background: var(--card);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 25px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    z-index: 10001;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+  }
+  #timedPopupOverlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 10000;
+  }
+  #timedPopup button.closeBtn {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--muted);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  #timedPopup button.closeBtn:hover {
+    color: var(--accent);
+  }
+  #timedPopup h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 0.03em;
+    font-size: 1.3rem;
+  }
+  #timedPopup p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  #timedPopup form input[type="email"] {
+    width: 100%;
+    padding: 14px 15px;
+    font-size: 1rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius);
+    background: var(--soft);
+    color: var(--text-primary);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  #timedPopup form input[type="email"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(211, 90, 154, 0.5);
+    outline: none;
+  }
+  #timedPopup form button.submitBtn {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: none;
+    color: white;
+    background: linear-gradient(90deg, var(--accent), #9b3b74);
+    cursor: pointer;
+    box-shadow: 0 6px 20px var(--glow-color);
+    transition: background-color 0.3s ease;
+  }
+  #timedPopup form button.submitBtn:hover {
+    background: linear-gradient(90deg, #9b3b74, var(--accent));
+  }
+</style>
+
+<div id="timedPopupOverlay"></div>
+
+<div id="timedPopup">
+  <button class="closeBtn" aria-label="Close">&times;</button>
+  <h3>Join Our VIP List & Enjoy Exclusive Content</h3>
+  <p>Subscribe now for privileged access to limited availability dates and complimentary monthly private videos made just for valued members.</p>
+  <form action="/submit-email" method="POST">
+    <input type="email" name="email" placeholder="Enter your email address" required />
+    <button type="submit" class="submitBtn">Subscribe Now</button>
+  </form>
+</div>
+
+<script>
+  (function() {
+    var popup = document.getElementById('timedPopup');
+    var overlay = document.getElementById('timedPopupOverlay');
+    var closeBtn = popup.querySelector('.closeBtn');
+    var popupShown = false;
+
+    function showPopup() {
+      if (!popupShown) {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+        popupShown = true;
+      }
+    }
+
+    function closePopup() {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+    }
+
+    setTimeout(showPopup, 10000); // Show after 10 seconds
+
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', closePopup);
+  })();
+</script>
 </body>
 </html>
 
