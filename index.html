@@ -910,6 +910,69 @@ document.addEventListener("DOMContentLoaded", function() {
     overlay.addEventListener('click', closePopup);
   })();
 </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("review-form");
+  const reviewsList = document.getElementById("reviews-list");
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent page refresh
+
+    const name = document.getElementById("reviewer-name").value.trim();
+    const text = document.getElementById("review-text").value.trim();
+
+    if (!name || !text) {
+      alert("Please enter your name and review.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name: name, text: text })
+      });
+
+      if (response.ok) {
+        alert("Review added successfully.");
+        form.reset();
+        loadReviews();
+      } else {
+        const errorData = await response.json();
+        alert("Failed to add review: " + (errorData.error || "Unknown error"));
+      }
+    } catch (error) {
+      alert("Error submitting review: " + error.message);
+    }
+  });
+
+  async function loadReviews() {
+    try {
+      const response = await fetch("/api/reviews");
+      if (response.ok) {
+        const reviews = await response.json();
+        reviewsList.innerHTML = "";
+        reviews.forEach(review => {
+          const div = document.createElement("div");
+          div.classList.add("review");
+          div.innerHTML = `<strong>${review.name}</strong>: ${review.text}`;
+          reviewsList.appendChild(div);
+        });
+      } else {
+        reviewsList.innerHTML = "Failed to load reviews.";
+      }
+    } catch {
+      reviewsList.innerHTML = "Failed to load reviews.";
+    }
+  }
+
+  // Load reviews initially on page load
+  loadReviews();
+});
+  </script>
 </body>
 </html>
 
