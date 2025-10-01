@@ -107,91 +107,65 @@ border="0" alt="The Erotic Review">
 <!--JuicyAds END-->
 
 <script>
-  const apiRoot = 'https://nikki-squirtss-backend.onrender.com/api'; // Use your actual backend API
+document.addEventListener("DOMContentLoaded", function() {
+  const apiRoot = 'https://nikki-squirtss-backend.onrender.com/api'; // update to your backend API URL
+  const reviewsList = document.getElementById('reviews-list');
+  const reviewForm = document.getElementById('review-form');
 
-async function loadReviews() {
-  try {
-    const response = await fetch(`${apiRoot}/reviews`);
-    if (!response.ok) throw new Error('Failed to fetch reviews');
-    const reviews = await response.json();
-    const reviewsList = document.getElementById('reviews-list');
-    if (!reviewsList) return;
-    reviewsList.innerHTML = reviews
-      .map(r => `
+  async function loadReviews() {
+    try {
+      const response = await fetch(`${apiRoot}/reviews`);
+      if (!response.ok) throw new Error('Failed to fetch reviews');
+      const reviews = await response.json();
+
+      reviewsList.innerHTML = reviews.map(r => `
         <div class="review" style="margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
           <strong>${r.name}</strong> <small style="color: var(--muted); font-size: 0.85rem;">${new Date(r.created_at).toLocaleString()}</small>
           <p style="margin-top: 4px;">${r.text}</p>
-        </div>`)
-      .join('');
-  } catch (error) {
-    console.error('Error loading reviews:', error);
-  }
-}
-
-document.getElementById('review-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const nameInput = document.getElementById('reviewer-name');
-  const textInput = document.getElementById('review-text');
-
-  if (!nameInput.value.trim() || !textInput.value.trim()) {
-    alert('Please enter your name and review text');
-    return;
-  }
-
-  try {
-    const response = await fetch(`${apiRoot}/reviews`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: nameInput.value.trim(), text: textInput.value.trim() }),
-    });
-    if (!response.ok) {
-      const err = await response.json();
-      alert('Failed to submit review: ' + (err.error || 'Unknown error'));
-      return;
+        </div>
+      `).join('');
+    } catch (error) {
+      reviewsList.textContent = 'Failed to load reviews.';
+      console.error('Error loading reviews:', error);
     }
-    nameInput.value = '';
-    textInput.value = '';
-    loadReviews();
-  } catch (error) {
-    alert('Error submitting review');
-    console.error(error);
   }
-});
 
-document.addEventListener('DOMContentLoaded', loadReviews);
-
-  document.getElementById('review-form').addEventListener('submit', async (event) => {
+  reviewForm.addEventListener('submit', async function(event) {
     event.preventDefault();
-    const nameInput = document.getElementById('reviewer-name');
-    const textInput = document.getElementById('review-text');
 
-    if (!nameInput.value.trim() || !textInput.value.trim()) {
-      alert('Please enter your name and review text');
+    const name = document.getElementById('reviewer-name').value.trim();
+    const text = document.getElementById('review-text').value.trim();
+
+    if (!name || !text) {
+      alert('Please enter your name and review.');
       return;
     }
 
     try {
-      const response = await fetch(backendUrl, {
+      const response = await fetch(`${apiRoot}/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: nameInput.value.trim(), text: textInput.value.trim() }),
+        body: JSON.stringify({ name, text }),
       });
       if (!response.ok) {
-        alert('Failed to submit review');
+        const errorData = await response.json();
+        alert('Failed to submit review: ' + (errorData.error || 'Unknown error'));
         return;
       }
-      nameInput.value = '';
-      textInput.value = '';
+
+      reviewForm.reset();
+      alert('Review added successfully.');
       loadReviews();
     } catch (error) {
-      alert('Error submitting review');
-      console.error(error);
+      alert('Error submitting review: ' + error.message);
+      console.error('Error submitting review:', error);
     }
   });
 
-  document.addEventListener('DOMContentLoaded', loadReviews);
+  // Load reviews on page load
+  loadReviews();
+});
 </script>
-
     <!-- about -->
     <section id="about" class="reveal">
       <div class="card">
