@@ -1,12 +1,11 @@
 
-  @imoort
+@import
 url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap'); 
- @import
+@import
 url('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
 @import
 url('https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css');
 
-  <style>
     /* --- Modern & Polished CSS Overhaul --- */
 
 /* 1. Root Variables for a Sophisticated Dark Theme */
@@ -308,5 +307,3 @@ span.flatpickr-weekday { color: var(--text-headings); }
 .preview-link:hover {
   text-decoration: underline;
 }
-
-  </style>
