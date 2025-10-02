@@ -86,86 +86,266 @@ border="0" alt="The Erotic Review">
           <img src="https://raw.githubusercontent.com/jackfrost00911/Nikki-Page/refs/heads/main/Downblouse.jpg" alt="Nikki Downblouse">
         </a>
       </aside>
-
-    <section id="reviews-section" class="card reveal" style="max-width: 720px; margin: 24px auto 48px; padding: 24px; border-radius: var(--radius); background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-  <h3 class="section-title" style="color: var(--text-headings); margin-bottom: 20px;">Customer Reviews</h3>
-
-  <div id="reviews-list" style="min-height: 120px; margin-bottom: 20px; color: var(--text-primary);">
-    <!-- Reviews will be dynamically loaded here -->
-  </div>
-
-  <form id="review-form" style="display: flex; flex-direction: column; gap: 12px;">
-    <input type="text" id="reviewer-name" placeholder="Your name" required style="padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body);" />
-    <textarea id="review-text" placeholder="Write your review..." required rows="3" style="resize: vertical; padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body);"></textarea>
-    <button type="submit" class="btn" style="background: var(--accent); box-shadow: 0 4px 20px var(--glow-color); color: white; font-weight: 700; padding: 12px 18px; border: none; border-radius: var(--radius); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">Add Review</button>
-  </form>
-</section>
+    
 <!-- JuicyAds v3.0 -->
 <script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
 <ins id="1102203" data-width="300" data-height="100"></ins>
 <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1102203});</script>
 <!--JuicyAds END-->
+    <!-- Reviews Section - Place this where your reviews section currently is -->
+<section id="reviews-section" class="card reveal" style="max-width: 720px; margin: 24px auto 48px; padding: 24px; border-radius: var(--radius); background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+  <h3 class="section-title" style="color: var(--text-headings); margin-bottom: 20px;">Customer Reviews</h3>
 
+  <!-- Loading indicator -->
+  <div id="reviews-loading" style="text-align: center; padding: 20px; color: var(--muted); display: none;">
+    <span style="display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite;"></span>
+    <p style="margin-top: 10px;">Loading reviews...</p>
+  </div>
+
+  <!-- Reviews list -->
+  <div id="reviews-list" style="min-height: 120px; margin-bottom: 20px; color: var(--text-primary);">
+    <!-- Reviews will be dynamically loaded here -->
+  </div>
+
+  <!-- Review form -->
+  <form id="review-form" style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <label for="reviewer-name" style="font-size: 0.9rem; color: var(--muted); font-weight: 500;">Your Name</label>
+      <input 
+        type="text" 
+        id="reviewer-name" 
+        placeholder="Enter your name" 
+        required 
+        minlength="2"
+        maxlength="50"
+        style="padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); transition: border-color 0.3s ease;" 
+        onfocus="this.style.borderColor='var(--accent)'" 
+        onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+      />
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <label for="review-text" style="font-size: 0.9rem; color: var(--muted); font-weight: 500;">Your Review</label>
+      <textarea 
+        id="review-text" 
+        placeholder="Share your experience..." 
+        required 
+        minlength="10"
+        maxlength="500"
+        rows="4" 
+        style="resize: vertical; padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); transition: border-color 0.3s ease;"
+        onfocus="this.style.borderColor='var(--accent)'" 
+        onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+      ></textarea>
+      <span id="char-count" style="font-size: 0.85rem; color: var(--muted); text-align: right;">0 / 500</span>
+    </div>
+    
+    <button 
+      type="submit" 
+      id="submit-review-btn"
+      class="btn" 
+      style="background: var(--accent); box-shadow: 0 4px 20px var(--glow-color); color: white; font-weight: 700; padding: 12px 18px; border: none; border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease;"
+      onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 25px var(--glow-color)'"
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px var(--glow-color)'"
+    >
+      Submit Review
+    </button>
+    
+    <div id="review-status" style="font-size: 0.9rem; text-align: center; padding: 8px; border-radius: var(--radius); display: none;"></div>
+  </form>
+</section>
+
+<!-- Add spinner animation CSS -->
+<style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .review-item {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    animation: fadeIn 0.4s ease-in;
+  }
+  
+  .review-item:last-child {
+    border-bottom: none;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  #review-status.success {
+    background: rgba(46, 213, 115, 0.1);
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    color: #2ed573;
+  }
+  
+  #review-status.error {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    color: #ff4757;
+  }
+</style>
+
+<!-- Single consolidated reviews script -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const apiRoot = 'https://nikki-squirtss-backend.onrender.com/api'; // update to your backend API URL
+  const apiRoot = 'https://nikki-squirtss-backend.onrender.com/api';
   const reviewsList = document.getElementById('reviews-list');
   const reviewForm = document.getElementById('review-form');
+  const reviewerNameInput = document.getElementById('reviewer-name');
+  const reviewTextInput = document.getElementById('review-text');
+  const submitBtn = document.getElementById('submit-review-btn');
+  const statusDiv = document.getElementById('review-status');
+  const charCount = document.getElementById('char-count');
+  const loadingDiv = document.getElementById('reviews-loading');
 
+  // Character counter
+  reviewTextInput.addEventListener('input', function() {
+    const length = this.value.length;
+    charCount.textContent = `${length} / 500`;
+    if (length > 450) {
+      charCount.style.color = '#ff4757';
+    } else {
+      charCount.style.color = 'var(--muted)';
+    }
+  });
+
+  // Show status message
+  function showStatus(message, isError = false) {
+    statusDiv.textContent = message;
+    statusDiv.className = isError ? 'error' : 'success';
+    statusDiv.style.display = 'block';
+    
+    setTimeout(() => {
+      statusDiv.style.display = 'none';
+    }, 5000);
+  }
+
+  // Load reviews from API
   async function loadReviews() {
+    loadingDiv.style.display = 'block';
+    reviewsList.innerHTML = '';
+    
     try {
       const response = await fetch(`${apiRoot}/reviews`);
-      if (!response.ok) throw new Error('Failed to fetch reviews');
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       const reviews = await response.json();
+      loadingDiv.style.display = 'none';
 
-      reviewsList.innerHTML = reviews.map(r => `
-        <div class="review" style="margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-          <strong>${r.name}</strong> <small style="color: var(--muted); font-size: 0.85rem;">${new Date(r.created_at).toLocaleString()}</small>
-          <p style="margin-top: 4px;">${r.text}</p>
+      if (reviews.length === 0) {
+        reviewsList.innerHTML = '<p style="color: var(--muted); text-align: center; padding: 20px;">No reviews yet. Be the first to share your experience!</p>';
+        return;
+      }
+
+      reviewsList.innerHTML = reviews.map(review => `
+        <div class="review-item">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: var(--accent); font-size: 1.05rem;">${escapeHtml(review.name)}</strong>
+            <small style="color: var(--muted); font-size: 0.85rem;">${formatDate(review.created_at)}</small>
+          </div>
+          <p style="margin: 0; line-height: 1.6; color: var(--text-primary);">${escapeHtml(review.text)}</p>
         </div>
       `).join('');
     } catch (error) {
-      reviewsList.textContent = 'Failed to load reviews.';
+      loadingDiv.style.display = 'none';
       console.error('Error loading reviews:', error);
+      reviewsList.innerHTML = '<p style="color: #ff4757; text-align: center; padding: 20px;">Unable to load reviews. Please try again later.</p>';
     }
   }
 
+  // Submit new review
   reviewForm.addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    const name = document.getElementById('reviewer-name').value.trim();
-    const text = document.getElementById('review-text').value.trim();
+    const name = reviewerNameInput.value.trim();
+    const text = reviewTextInput.value.trim();
 
-    if (!name || !text) {
-      alert('Please enter your name and review.');
+    // Validation
+    if (name.length < 2) {
+      showStatus('Name must be at least 2 characters long.', true);
       return;
     }
+
+    if (text.length < 10) {
+      showStatus('Review must be at least 10 characters long.', true);
+      return;
+    }
+
+    // Disable form during submission
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.style.opacity = '0.6';
+    submitBtn.style.cursor = 'not-allowed';
 
     try {
       const response = await fetch(`${apiRoot}/reviews`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({ name, text }),
       });
+
       if (!response.ok) {
-        const errorData = await response.json();
-        alert('Failed to submit review: ' + (errorData.error || 'Unknown error'));
-        return;
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        throw new Error(errorData.error || `Server error: ${response.status}`);
       }
 
+      // Success
       reviewForm.reset();
-      alert('Review added successfully.');
+      charCount.textContent = '0 / 500';
+      showStatus('✓ Review submitted successfully! Thank you for your feedback.');
       loadReviews();
     } catch (error) {
-      alert('Error submitting review: ' + error.message);
       console.error('Error submitting review:', error);
+      showStatus(`Failed to submit review: ${error.message}`, true);
+    } finally {
+      // Re-enable form
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Review';
+      submitBtn.style.opacity = '1';
+      submitBtn.style.cursor = 'pointer';
     }
   });
 
-  // Load reviews on page load
+  // Helper function to escape HTML
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Helper function to format date
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays === 0) return 'Today';
+    if (diffDays === 1) return 'Yesterday';
+    if (diffDays < 7) return `${diffDays} days ago`;
+    
+    return date.toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric', 
+      year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined 
+    });
+  }
+
+  // Initial load
   loadReviews();
 });
-</script>
+      </script>
     <!-- about -->
     <section id="about" class="reveal">
       <div class="card">
