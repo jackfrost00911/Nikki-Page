@@ -92,9 +92,22 @@ border="0" alt="The Erotic Review">
 <ins id="1102203" data-width="300" data-height="100"></ins>
 <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1102203});</script>
 <!--JuicyAds END-->
-    <!-- Reviews Section - Place this where your reviews section currently is -->
+    <!-- Reviews Section with Star Rating -->
 <section id="reviews-section" class="card reveal" style="max-width: 720px; margin: 24px auto 48px; padding: 24px; border-radius: var(--radius); background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
   <h3 class="section-title" style="color: var(--text-headings); margin-bottom: 20px;">Customer Reviews</h3>
+
+  <!-- Average Rating Display -->
+  <div id="average-rating-display" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding: 16px; background: var(--soft); border-radius: var(--radius);">
+    <div class="stars-display" style="font-size: 1.5rem; color: #FFD700;">
+      <span class="avg-stars">☆☆☆☆☆</span>
+    </div>
+    <div style="color: var(--text-primary);">
+      <strong id="avg-rating-number">0.0</strong> out of 5
+      <div style="font-size: 0.85rem; color: var(--muted);">
+        <span id="total-reviews">0</span> reviews
+      </div>
+    </div>
+  </div>
 
   <!-- Loading indicator -->
   <div id="reviews-loading" style="text-align: center; padding: 20px; color: var(--muted); display: none;">
@@ -103,73 +116,100 @@ border="0" alt="The Erotic Review">
   </div>
 
   <!-- Reviews list -->
-  <div id="reviews-list" style="min-height: 120px; margin-bottom: 20px; color: var(--text-primary);">
+  <div id="reviews-list" style="margin-bottom: 30px; color: var(--text-primary);">
     <!-- Reviews will be dynamically loaded here -->
   </div>
 
-  <!-- Review form -->
-  <form id="review-form" style="display: flex; flex-direction: column; gap: 12px;">
-    <div style="display: flex; flex-direction: column; gap: 4px;">
-      <label for="reviewer-name" style="font-size: 0.9rem; color: var(--muted); font-weight: 500;">Your Name</label>
-      <input 
-        type="text" 
-        id="reviewer-name" 
-        placeholder="Enter your name" 
-        required 
-        minlength="2"
-        maxlength="50"
-        style="padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); transition: border-color 0.3s ease;" 
-        onfocus="this.style.borderColor='var(--accent)'" 
-        onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
-      />
-    </div>
+  <!-- Add Review Form -->
+  <div style="border-top: 2px solid rgba(255,255,255,0.1); padding-top: 24px;">
+    <h4 style="color: var(--text-headings); margin-bottom: 16px; font-size: 1.2rem;">Write a Review</h4>
     
-    <div style="display: flex; flex-direction: column; gap: 4px;">
-      <label for="review-text" style="font-size: 0.9rem; color: var(--muted); font-weight: 500;">Your Review</label>
-      <textarea 
-        id="review-text" 
-        placeholder="Share your experience..." 
-        required 
-        minlength="10"
-        maxlength="500"
-        rows="4" 
-        style="resize: vertical; padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); transition: border-color 0.3s ease;"
-        onfocus="this.style.borderColor='var(--accent)'" 
-        onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
-      ></textarea>
-      <span id="char-count" style="font-size: 0.85rem; color: var(--muted); text-align: right;">0 / 500</span>
-    </div>
-    
-    <button 
-      type="submit" 
-      id="submit-review-btn"
-      class="btn" 
-      style="background: var(--accent); box-shadow: 0 4px 20px var(--glow-color); color: white; font-weight: 700; padding: 12px 18px; border: none; border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease;"
-      onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 25px var(--glow-color)'"
-      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px var(--glow-color)'"
-    >
-      Submit Review
-    </button>
-    
-    <div id="review-status" style="font-size: 0.9rem; text-align: center; padding: 8px; border-radius: var(--radius); display: none;"></div>
-  </form>
+    <form id="review-form" style="display: flex; flex-direction: column; gap: 16px;">
+      <!-- Name Input -->
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <label for="reviewer-name" style="font-size: 0.95rem; color: var(--text-primary); font-weight: 600;">Your Name *</label>
+        <input 
+          type="text" 
+          id="reviewer-name" 
+          placeholder="Enter your name" 
+          required 
+          minlength="2"
+          maxlength="50"
+          style="padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); transition: border-color 0.3s ease;" 
+          onfocus="this.style.borderColor='var(--accent)'" 
+          onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+        />
+      </div>
+
+      <!-- Star Rating Input -->
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-size: 0.95rem; color: var(--text-primary); font-weight: 600;">Overall Rating *</label>
+        <div class="star-rating-input" style="display: flex; align-items: center; gap: 12px;">
+          <div class="stars" style="font-size: 2rem; direction: rtl; display: inline-flex;">
+            <input type="radio" id="star5" name="rating" value="5" required style="display: none;">
+            <label for="star5" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
+            
+            <input type="radio" id="star4" name="rating" value="4" style="display: none;">
+            <label for="star4" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
+            
+            <input type="radio" id="star3" name="rating" value="3" style="display: none;">
+            <label for="star3" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
+            
+            <input type="radio" id="star2" name="rating" value="2" style="display: none;">
+            <label for="star2" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
+            
+            <input type="radio" id="star1" name="rating" value="1" style="display: none;">
+            <label for="star1" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
+          </div>
+          <span id="rating-text" style="font-size: 0.95rem; color: var(--muted); min-width: 120px;">Select a rating</span>
+        </div>
+      </div>
+
+      <!-- Review Comments -->
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <label for="review-text" style="font-size: 0.95rem; color: var(--text-primary); font-weight: 600;">Your Review</label>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 0 0 8px 0;">Share your experience with Nikki's services</p>
+        <textarea 
+          id="review-text" 
+          placeholder="What did you like or dislike? How was the overall experience?" 
+          rows="5" 
+          maxlength="1000"
+          style="resize: vertical; padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); line-height: 1.5; transition: border-color 0.3s ease;"
+          onfocus="this.style.borderColor='var(--accent)'" 
+          onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+        ></textarea>
+        <span id="char-count" style="font-size: 0.85rem; color: var(--muted); text-align: right;">0 / 1000</span>
+      </div>
+      
+      <button 
+        type="submit" 
+        id="submit-review-btn"
+        class="btn" 
+        style="background: var(--accent); box-shadow: 0 4px 20px var(--glow-color); color: white; font-weight: 700; padding: 14px 20px; border: none; border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease; font-size: 1.05rem;"
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 25px var(--glow-color)'"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px var(--glow-color)'"
+      >
+        Submit Review
+      </button>
+      
+      <div id="review-status" style="font-size: 0.9rem; text-align: center; padding: 12px; border-radius: var(--radius); display: none;"></div>
+    </form>
+  </div>
 </section>
 
-<!-- Add spinner animation CSS -->
+<!-- Enhanced Styles for Star Rating -->
 <style>
   @keyframes spin {
     to { transform: rotate(360deg); }
   }
   
   .review-item {
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+    padding: 16px;
+    background: var(--soft);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.05);
     animation: fadeIn 0.4s ease-in;
-  }
-  
-  .review-item:last-child {
-    border-bottom: none;
   }
   
   @keyframes fadeIn {
@@ -177,20 +217,40 @@ border="0" alt="The Erotic Review">
     to { opacity: 1; transform: translateY(0); }
   }
   
+  /* Star rating hover effects */
+  .star-label:hover,
+  .star-label:hover ~ .star-label {
+    color: #FFD700 !important;
+  }
+  
+  input[type="radio"]:checked ~ .star-label {
+    color: #FFD700 !important;
+  }
+  
+  .stars-filled {
+    color: #FFD700;
+  }
+  
   #review-status.success {
-    background: rgba(46, 213, 115, 0.1);
+    background: rgba(46, 213, 115, 0.15);
     border: 1px solid rgba(46, 213, 115, 0.3);
     color: #2ed573;
   }
   
   #review-status.error {
-    background: rgba(255, 71, 87, 0.1);
+    background: rgba(255, 71, 87, 0.15);
     border: 1px solid rgba(255, 71, 87, 0.3);
     color: #ff4757;
   }
+  
+  .review-stars {
+    color: #FFD700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
 </style>
 
-<!-- Single consolidated reviews script -->
+<!-- Enhanced JavaScript for Star Rating Reviews -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const apiRoot = 'https://nikki-squirtss-backend.onrender.com/api';
@@ -202,16 +262,37 @@ document.addEventListener("DOMContentLoaded", function() {
   const statusDiv = document.getElementById('review-status');
   const charCount = document.getElementById('char-count');
   const loadingDiv = document.getElementById('reviews-loading');
+  const ratingText = document.getElementById('rating-text');
+  const starLabels = document.querySelectorAll('.star-label');
+  const ratingInputs = document.querySelectorAll('input[name="rating"]');
+
+  const ratingLabels = {
+    1: 'Poor',
+    2: 'Fair',
+    3: 'Good',
+    4: 'Very Good',
+    5: 'Excellent'
+  };
 
   // Character counter
   reviewTextInput.addEventListener('input', function() {
     const length = this.value.length;
-    charCount.textContent = `${length} / 500`;
-    if (length > 450) {
+    charCount.textContent = `${length} / 1000`;
+    if (length > 900) {
       charCount.style.color = '#ff4757';
     } else {
       charCount.style.color = 'var(--muted)';
     }
+  });
+
+  // Star rating interaction
+  ratingInputs.forEach(input => {
+    input.addEventListener('change', function() {
+      const value = this.value;
+      ratingText.textContent = ratingLabels[value];
+      ratingText.style.color = 'var(--accent)';
+      ratingText.style.fontWeight = '600';
+    });
   });
 
   // Show status message
@@ -223,6 +304,42 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
       statusDiv.style.display = 'none';
     }, 5000);
+  }
+
+  // Generate star display
+  function generateStars(rating) {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+    let stars = '';
+    
+    for (let i = 0; i < fullStars; i++) {
+      stars += '★';
+    }
+    if (hasHalfStar) {
+      stars += '⯨';
+    }
+    for (let i = stars.length; i < 5; i++) {
+      stars += '☆';
+    }
+    
+    return stars;
+  }
+
+  // Calculate and display average rating
+  function updateAverageRating(reviews) {
+    if (reviews.length === 0) {
+      document.querySelector('.avg-stars').textContent = '☆☆☆☆☆';
+      document.getElementById('avg-rating-number').textContent = '0.0';
+      document.getElementById('total-reviews').textContent = '0';
+      return;
+    }
+
+    const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+    const avgRating = (totalRating / reviews.length).toFixed(1);
+    
+    document.querySelector('.avg-stars').innerHTML = `<span class="stars-filled">${generateStars(parseFloat(avgRating))}</span>`;
+    document.getElementById('avg-rating-number').textContent = avgRating;
+    document.getElementById('total-reviews').textContent = reviews.length;
   }
 
   // Load reviews from API
@@ -240,18 +357,25 @@ document.addEventListener("DOMContentLoaded", function() {
       const reviews = await response.json();
       loadingDiv.style.display = 'none';
 
+      updateAverageRating(reviews);
+
       if (reviews.length === 0) {
-        reviewsList.innerHTML = '<p style="color: var(--muted); text-align: center; padding: 20px;">No reviews yet. Be the first to share your experience!</p>';
+        reviewsList.innerHTML = '<p style="color: var(--muted); text-align: center; padding: 30px; background: var(--soft); border-radius: var(--radius);">No reviews yet. Be the first to share your experience!</p>';
         return;
       }
 
       reviewsList.innerHTML = reviews.map(review => `
         <div class="review-item">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <strong style="color: var(--accent); font-size: 1.05rem;">${escapeHtml(review.name)}</strong>
-            <small style="color: var(--muted); font-size: 0.85rem;">${formatDate(review.created_at)}</small>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <strong style="color: var(--accent); font-size: 1.05rem;">${escapeHtml(review.name)}</strong>
+              <div class="review-stars" style="margin-top: 4px;">
+                ${generateStars(review.rating)}
+              </div>
+            </div>
+            <small style="color: var(--muted); font-size: 0.85rem; white-space: nowrap;">${formatDate(review.created_at)}</small>
           </div>
-          <p style="margin: 0; line-height: 1.6; color: var(--text-primary);">${escapeHtml(review.text)}</p>
+          ${review.text ? `<p style="margin: 0; line-height: 1.6; color: var(--text-primary);">${escapeHtml(review.text)}</p>` : '<p style="margin: 0; font-style: italic; color: var(--muted);">No written review</p>'}
         </div>
       `).join('');
     } catch (error) {
@@ -267,15 +391,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const name = reviewerNameInput.value.trim();
     const text = reviewTextInput.value.trim();
+    const ratingInput = document.querySelector('input[name="rating"]:checked');
 
     // Validation
-    if (name.length < 2) {
-      showStatus('Name must be at least 2 characters long.', true);
+    if (!ratingInput) {
+      showStatus('Please select a star rating.', true);
       return;
     }
 
-    if (text.length < 10) {
-      showStatus('Review must be at least 10 characters long.', true);
+    const rating = parseInt(ratingInput.value);
+
+    if (name.length < 2) {
+      showStatus('Name must be at least 2 characters long.', true);
       return;
     }
 
@@ -292,7 +419,7 @@ document.addEventListener("DOMContentLoaded", function() {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({ name, text }),
+        body: JSON.stringify({ name, text, rating }),
       });
 
       if (!response.ok) {
@@ -302,7 +429,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Success
       reviewForm.reset();
-      charCount.textContent = '0 / 500';
+      charCount.textContent = '0 / 1000';
+      ratingText.textContent = 'Select a rating';
+      ratingText.style.color = 'var(--muted)';
+      ratingText.style.fontWeight = 'normal';
       showStatus('✓ Review submitted successfully! Thank you for your feedback.');
       loadReviews();
     } catch (error) {
