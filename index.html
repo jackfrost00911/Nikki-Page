@@ -51,33 +51,17 @@ border="0" alt="The Erotic Review">
   </nav>
 
   <main class="container">
-     <!-- Refined Email Capture Form -->
-<form action="https://nikki-squirtss-backend.onrender.com/submit-email" method="POST" style="max-width: 400px; margin: 30px auto; font-family: var(--font-body); background: var(--card); padding: 24px; border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-  <label for="email" style="display: block; font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--text-headings); margin-bottom: 12px;">
-    Join My VIP List & Enjoy Free Exclusive Content
-  </label>
-  <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 20px; line-height: 1.4;">
-    Subscribe now to receive priveleged access to my private video content—crafted especially for valued clients.You cannot find this content anywhere else!
-  </p>
-  <input 
-    type="email" 
-    id="email" 
-    name="email" 
-    placeholder="Enter your email address" 
-    required 
-    style="width: 100%; padding: 14px; font-size: 1rem; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius); background: var(--soft); color: var(--text-primary); transition: border-color 0.3s ease;"
-    onfocus="this.style.borderColor='var(--accent)'" 
-    onblur="this.style.borderColor='rgba(255, 255, 255, 0.15)'"
-  >
-  <button 
-    type="submit" 
-    style="margin-top: 20px; width: 100%; background: linear-gradient(90deg, var(--accent), #9b3b74); color: white; font-size: 1.1rem; font-weight: 700; padding: 14px; border: none; border-radius: var(--radius); cursor: pointer; box-shadow: 0 6px 20px var(--glow-color); transition: background 0.3s ease;"
-    onmouseover="this.style.background='linear-gradient(90deg, #9b3b74, var(--accent))'"
-    onmouseout="this.style.background='linear-gradient(90deg, var(--accent), #9b3b74)'"
-  >
-    Subscribe Now
-  </button>
-</form>
+     <!-- about -->
+    <section id="about" class="reveal">
+      <div class="card">
+        <h3 class="section-title">About Nikki</h3>
+        <p style="color:var(--muted)"> 👋🏻 I'm Nikki.
+Based in Reno, NV, I offer refined, professional companionship. If you're seeking "cheap thrills," this isn't the place—my time and services reflect quality, experience, and care from the very first interaction to the last.
+
+Beyond companionship, I write about the industry, share thoughtful insights, and advocate for safety and respect within this space. Every experience is tailored, discreet, and grounded in mutual consent.</p>
+        <a href="about.html" class="preview-link">Learn more about me →</a>
+      </div>
+    </section>
 
       <aside class="photo-frame reveal" aria-hidden="false">
         <a href="https://raw.githubusercontent.com/jackfrost00911/Nikki-Page/refs/heads/main/Downblouse.jpg" class="glightbox" data-glightbox="title:Nikki Downblouse">
@@ -90,401 +74,6 @@ border="0" alt="The Erotic Review">
 <ins id="1102203" data-width="300" data-height="100"></ins>
 <script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':1102203});</script>
 <!--JuicyAds END-->
-    <!-- Reviews Section with Star Rating -->
-<section id="reviews-section" class="card reveal" style="max-width: 720px; margin: 24px auto 48px; padding: 24px; border-radius: var(--radius); background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-  <h3 class="section-title" style="color: var(--text-headings); margin-bottom: 20px;">Customer Reviews</h3>
-
-  <!-- Average Rating Display -->
-  <div id="average-rating-display" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding: 16px; background: var(--soft); border-radius: var(--radius);">
-    <div class="stars-display" style="font-size: 1.5rem; color: #FFD700;">
-      <span class="avg-stars">☆☆☆☆☆</span>
-    </div>
-    <div style="color: var(--text-primary);">
-      <strong id="avg-rating-number">0.0</strong> out of 5
-      <div style="font-size: 0.85rem; color: var(--muted);">
-        <span id="total-reviews">0</span> reviews
-      </div>
-    </div>
-  </div>
-
-  <!-- Loading indicator -->
-  <div id="reviews-loading" style="text-align: center; padding: 20px; color: var(--muted); display: none;">
-    <span style="display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite;"></span>
-    <p style="margin-top: 10px;">Loading reviews...</p>
-  </div>
-
-  <!-- Reviews list -->
-  <div id="reviews-list" style="margin-bottom: 30px; color: var(--text-primary);">
-    <!-- Reviews will be dynamically loaded here -->
-  </div>
-
-  <!-- Add Review Form -->
-  <div style="border-top: 2px solid rgba(255,255,255,0.1); padding-top: 24px;">
-    <h4 style="color: var(--text-headings); margin-bottom: 16px; font-size: 1.2rem;">Write a Review</h4>
-    
-    <form id="review-form" style="display: flex; flex-direction: column; gap: 16px;">
-      <!-- Name Input -->
-      <div style="display: flex; flex-direction: column; gap: 4px;">
-        <label for="reviewer-name" style="font-size: 0.95rem; color: var(--text-primary); font-weight: 600;">Your Name *</label>
-        <input 
-          type="text" 
-          id="reviewer-name" 
-          placeholder="Enter your name" 
-          required 
-          minlength="2"
-          maxlength="50"
-          style="padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); transition: border-color 0.3s ease;" 
-          onfocus="this.style.borderColor='var(--accent)'" 
-          onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
-        />
-      </div>
-
-      <!-- Star Rating Input -->
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <label style="font-size: 0.95rem; color: var(--text-primary); font-weight: 600;">Overall Rating *</label>
-        <div class="star-rating-input" style="display: flex; align-items: center; gap: 12px;">
-          <div class="stars" style="font-size: 2rem; direction: rtl; display: inline-flex;">
-            <input type="radio" id="star5" name="rating" value="5" required style="display: none;">
-            <label for="star5" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
-            
-            <input type="radio" id="star4" name="rating" value="4" style="display: none;">
-            <label for="star4" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
-            
-            <input type="radio" id="star3" name="rating" value="3" style="display: none;">
-            <label for="star3" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
-            
-            <input type="radio" id="star2" name="rating" value="2" style="display: none;">
-            <label for="star2" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
-            
-            <input type="radio" id="star1" name="rating" value="1" style="display: none;">
-            <label for="star1" class="star-label" style="cursor: pointer; color: rgba(255,255,255,0.2); transition: color 0.2s;">★</label>
-          </div>
-          <span id="rating-text" style="font-size: 0.95rem; color: var(--muted); min-width: 120px;">Select a rating</span>
-        </div>
-      </div>
-
-      <!-- Review Comments -->
-      <div style="display: flex; flex-direction: column; gap: 4px;">
-        <label for="review-text" style="font-size: 0.95rem; color: var(--text-primary); font-weight: 600;">Your Review</label>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 0 0 8px 0;">Share your experience with Nikki's services</p>
-        <textarea 
-          id="review-text" 
-          placeholder="What did you like or dislike? How was the overall experience?" 
-          rows="5" 
-          maxlength="1000"
-          style="resize: vertical; padding: 12px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); background: var(--soft); color: var(--text-primary); font-size: 1rem; font-family: var(--font-body); line-height: 1.5; transition: border-color 0.3s ease;"
-          onfocus="this.style.borderColor='var(--accent)'" 
-          onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
-        ></textarea>
-        <span id="char-count" style="font-size: 0.85rem; color: var(--muted); text-align: right;">0 / 1000</span>
-      </div>
-      
-      <button 
-        type="submit" 
-        id="submit-review-btn"
-        class="btn" 
-        style="background: var(--accent); box-shadow: 0 4px 20px var(--glow-color); color: white; font-weight: 700; padding: 14px 20px; border: none; border-radius: var(--radius); cursor: pointer; transition: all 0.3s ease; font-size: 1.05rem;"
-        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 25px var(--glow-color)'"
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px var(--glow-color)'"
-      >
-        Submit Review
-      </button>
-      
-      <div id="review-status" style="font-size: 0.9rem; text-align: center; padding: 12px; border-radius: var(--radius); display: none;"></div>
-    </form>
-  </div>
-</section>
-
-<!-- Enhanced Styles for Star Rating -->
-<style>
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
-  .review-item {
-    margin-bottom: 20px;
-    padding: 16px;
-    background: var(--soft);
-    border-radius: var(--radius);
-    border: 1px solid rgba(255,255,255,0.05);
-    animation: fadeIn 0.4s ease-in;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Star rating hover effects */
-  .star-label:hover,
-  .star-label:hover ~ .star-label {
-    color: #FFD700 !important;
-  }
-  
-  input[type="radio"]:checked ~ .star-label {
-    color: #FFD700 !important;
-  }
-  
-  .stars-filled {
-    color: #FFD700;
-  }
-  
-  #review-status.success {
-    background: rgba(46, 213, 115, 0.15);
-    border: 1px solid rgba(46, 213, 115, 0.3);
-    color: #2ed573;
-  }
-  
-  #review-status.error {
-    background: rgba(255, 71, 87, 0.15);
-    border: 1px solid rgba(255, 71, 87, 0.3);
-    color: #ff4757;
-  }
-  
-  .review-stars {
-    color: #FFD700;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-  }
-</style>
-
-<!-- Enhanced JavaScript for Star Rating Reviews -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const apiRoot = 'https://nikki-squirtss-backend.onrender.com/api';
-  const reviewsList = document.getElementById('reviews-list');
-  const reviewForm = document.getElementById('review-form');
-  const reviewerNameInput = document.getElementById('reviewer-name');
-  const reviewTextInput = document.getElementById('review-text');
-  const submitBtn = document.getElementById('submit-review-btn');
-  const statusDiv = document.getElementById('review-status');
-  const charCount = document.getElementById('char-count');
-  const loadingDiv = document.getElementById('reviews-loading');
-  const ratingText = document.getElementById('rating-text');
-  const starLabels = document.querySelectorAll('.star-label');
-  const ratingInputs = document.querySelectorAll('input[name="rating"]');
-
-  const ratingLabels = {
-    1: 'Poor',
-    2: 'Fair',
-    3: 'Good',
-    4: 'Very Good',
-    5: 'Excellent'
-  };
-
-  // Character counter
-  reviewTextInput.addEventListener('input', function() {
-    const length = this.value.length;
-    charCount.textContent = `${length} / 1000`;
-    if (length > 900) {
-      charCount.style.color = '#ff4757';
-    } else {
-      charCount.style.color = 'var(--muted)';
-    }
-  });
-
-  // Star rating interaction
-  ratingInputs.forEach(input => {
-    input.addEventListener('change', function() {
-      const value = this.value;
-      ratingText.textContent = ratingLabels[value];
-      ratingText.style.color = 'var(--accent)';
-      ratingText.style.fontWeight = '600';
-    });
-  });
-
-  // Show status message
-  function showStatus(message, isError = false) {
-    statusDiv.textContent = message;
-    statusDiv.className = isError ? 'error' : 'success';
-    statusDiv.style.display = 'block';
-    
-    setTimeout(() => {
-      statusDiv.style.display = 'none';
-    }, 5000);
-  }
-
-  // Generate star display
-  function generateStars(rating) {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    let stars = '';
-    
-    for (let i = 0; i < fullStars; i++) {
-      stars += '★';
-    }
-    if (hasHalfStar) {
-      stars += '⯨';
-    }
-    for (let i = stars.length; i < 5; i++) {
-      stars += '☆';
-    }
-    
-    return stars;
-  }
-
-  // Calculate and display average rating
-  function updateAverageRating(reviews) {
-    if (reviews.length === 0) {
-      document.querySelector('.avg-stars').textContent = '☆☆☆☆☆';
-      document.getElementById('avg-rating-number').textContent = '0.0';
-      document.getElementById('total-reviews').textContent = '0';
-      return;
-    }
-
-    const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-    const avgRating = (totalRating / reviews.length).toFixed(1);
-    
-    document.querySelector('.avg-stars').innerHTML = `<span class="stars-filled">${generateStars(parseFloat(avgRating))}</span>`;
-    document.getElementById('avg-rating-number').textContent = avgRating;
-    document.getElementById('total-reviews').textContent = reviews.length;
-  }
-
-  // Load reviews from API
-  async function loadReviews() {
-    loadingDiv.style.display = 'block';
-    reviewsList.innerHTML = '';
-    
-    try {
-      const response = await fetch(`${apiRoot}/reviews`);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
-      const reviews = await response.json();
-      loadingDiv.style.display = 'none';
-
-      updateAverageRating(reviews);
-
-      if (reviews.length === 0) {
-        reviewsList.innerHTML = '<p style="color: var(--muted); text-align: center; padding: 30px; background: var(--soft); border-radius: var(--radius);">No reviews yet. Be the first to share your experience!</p>';
-        return;
-      }
-
-      reviewsList.innerHTML = reviews.map(review => `
-        <div class="review-item">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-            <div>
-              <strong style="color: var(--accent); font-size: 1.05rem;">${escapeHtml(review.name)}</strong>
-              <div class="review-stars" style="margin-top: 4px;">
-                ${generateStars(review.rating)}
-              </div>
-            </div>
-            <small style="color: var(--muted); font-size: 0.85rem; white-space: nowrap;">${formatDate(review.created_at)}</small>
-          </div>
-          ${review.text ? `<p style="margin: 0; line-height: 1.6; color: var(--text-primary);">${escapeHtml(review.text)}</p>` : '<p style="margin: 0; font-style: italic; color: var(--muted);">No written review</p>'}
-        </div>
-      `).join('');
-    } catch (error) {
-      loadingDiv.style.display = 'none';
-      console.error('Error loading reviews:', error);
-      reviewsList.innerHTML = '<p style="color: #ff4757; text-align: center; padding: 20px;">Unable to load reviews. Please try again later.</p>';
-    }
-  }
-
-  // Submit new review
-  reviewForm.addEventListener('submit', async function(event) {
-    event.preventDefault();
-
-    const name = reviewerNameInput.value.trim();
-    const text = reviewTextInput.value.trim();
-    const ratingInput = document.querySelector('input[name="rating"]:checked');
-
-    // Validation
-    if (!ratingInput) {
-      showStatus('Please select a star rating.', true);
-      return;
-    }
-
-    const rating = parseInt(ratingInput.value);
-
-    if (name.length < 2) {
-      showStatus('Name must be at least 2 characters long.', true);
-      return;
-    }
-
-    // Disable form during submission
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
-    submitBtn.style.opacity = '0.6';
-    submitBtn.style.cursor = 'not-allowed';
-
-    try {
-      const response = await fetch(`${apiRoot}/reviews`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({ name, text, rating }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-        throw new Error(errorData.error || `Server error: ${response.status}`);
-      }
-
-      // Success
-      reviewForm.reset();
-      charCount.textContent = '0 / 1000';
-      ratingText.textContent = 'Select a rating';
-      ratingText.style.color = 'var(--muted)';
-      ratingText.style.fontWeight = 'normal';
-      showStatus('✓ Review submitted successfully! Thank you for your feedback.');
-      loadReviews();
-    } catch (error) {
-      console.error('Error submitting review:', error);
-      showStatus(`Failed to submit review: ${error.message}`, true);
-    } finally {
-      // Re-enable form
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Review';
-      submitBtn.style.opacity = '1';
-      submitBtn.style.cursor = 'pointer';
-    }
-  });
-
-  // Helper function to escape HTML
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
-  // Helper function to format date
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffTime = Math.abs(now - date);
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (diffDays === 0) return 'Today';
-    if (diffDays === 1) return 'Yesterday';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric', 
-      year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined 
-    });
-  }
-
-  // Initial load
-  loadReviews();
-});
-      </script>
-    <!-- about -->
-    <section id="about" class="reveal">
-      <div class="card">
-        <h3 class="section-title">About Nikki</h3>
-        <p style="color:var(--muted)"> 👋🏻 I'm Nikki.
-Based in Reno, NV, I offer refined, professional companionship. If you're seeking "cheap thrills," this isn't the place—my time and services reflect quality, experience, and care from the very first interaction to the last.
-
-Beyond companionship, I write about the industry, share thoughtful insights, and advocate for safety and respect within this space. Every experience is tailored, discreet, and grounded in mutual consent.</p>
-        <a href="about.html" class="preview-link">Learn more about me →</a>
-      </div>
-    </section>
 
     <!-- services preview -->
     <section id="services-preview" class="reveal">
@@ -539,6 +128,33 @@ Beyond companionship, I write about the industry, share thoughtful insights, and
       </div>
     </section>
   </main>
+  -- Refined Email Capture Form -->
+<form action="https://nikki-squirtss-backend.onrender.com/submit-email" method="POST" style="max-width: 400px; margin: 30px auto; font-family: var(--font-body); background: var(--card); padding: 24px; border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+  <label for="email" style="display: block; font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--text-headings); margin-bottom: 12px;">
+    Join My VIP List & Enjoy Free Exclusive Content
+  </label>
+  <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 20px; line-height: 1.4;">
+    Subscribe now to receive priveleged access to my private video content—crafted especially for valued clients.You cannot find this content anywhere else!
+  </p>
+  <input 
+    type="email" 
+    id="email" 
+    name="email" 
+    placeholder="Enter your email address" 
+    required 
+    style="width: 100%; padding: 14px; font-size: 1rem; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius); background: var(--soft); color: var(--text-primary); transition: border-color 0.3s ease;"
+    onfocus="this.style.borderColor='var(--accent)'" 
+    onblur="this.style.borderColor='rgba(255, 255, 255, 0.15)'"
+  >
+  <button 
+    type="submit" 
+    style="margin-top: 20px; width: 100%; background: linear-gradient(90deg, var(--accent), #9b3b74); color: white; font-size: 1.1rem; font-weight: 700; padding: 14px; border: none; border-radius: var(--radius); cursor: pointer; box-shadow: 0 6px 20px var(--glow-color); transition: background 0.3s ease;"
+    onmouseover="this.style.background='linear-gradient(90deg, #9b3b74, var(--accent))'"
+    onmouseout="this.style.background='linear-gradient(90deg, var(--accent), #9b3b74)'"
+  >
+    Subscribe Now
+  </button>
+</form>
   <a href="https://tryst.link/escort/nikki-s" rel="noopener" target="_blank" title="Nikki S's Tryst.link profile" style="border: none"><img src="https://tryst.link/embed/banner/nikki-s.jpg" alt="Nikki S's Tryst.link profile" style="width: 300px; height: 150px; max-width: 100%; height: auto;"></img></a>
   
 <!-- JuicyAds v3.0 -->
