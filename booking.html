@@ -48,7 +48,7 @@
     <!-- Page header -->
     <div class="page-header reveal">
       <h1 class="page-title">Request a Reservation</h1>
-      <p class="page-subtitle">Secure your exclusive time with Nikki by completing the form below</p>
+      <p class="page-subtitle">Secure your exclusive time with me by completing the form below</p>
     </div>
 
     <!-- Booking info -->
@@ -68,7 +68,7 @@
         
         <div class="booking-info">
           <h4>Deposit & Confirmation</h4>
-          <p>A 20% deposit is required to secure all bookings, which is applied toward your donation. Once your deposit is received, you'll receive a confirmation with the details of our appointment.</p>
+          <p>A 10% deposit is required to secure all bookings, which is applied toward your donation. Once your deposit is received, you'll receive a confirmation with the details of our appointment.</p>
         </div>
         
         <div class="booking-info">
@@ -77,24 +77,114 @@
         </div>
       </div>
     </section>
-
-    <!-- Booking Form -->
-    <form id="booking-form" class="booking" style="max-width: 720px; margin: 0 auto;">
-      <div class="booking-grid">
-        <input id="booking-name" type="text" placeholder="Your Name" required />
-        <input id="booking-email" type="email" placeholder="Your Email" required />
-        <input id="booking-phone" type="tel" placeholder="Your Phone" />
-        <input id="booking-datetime" type="text" placeholder="Select Date & Time" required />
-        <input id="booking-service" type="text" placeholder="Service" required />
-        <input id="booking-location" type="text" placeholder="Location" />
-        <textarea id="booking-notes" placeholder="Additional Notes"></textarea>
+<section id="booking-form" class="reveal">
+  <div class="container">
+    <h2>Request Booking</h2>
+    <p>Ready to Indulge? Fill out the form below to submit a booking inquiry. You can use a placeholder for the Last Name if you prefer privacy.</p>
+    
+    <form action="https://nikki-squirtss-backend.onrender.com/submit-booking" method="POST" class="booking-form">
+      
+      <!-- Personal Information -->
+      <div class="form-section">
+        <h3>Personal Information</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="first-name">First Name *</label>
+            <input type="text" id="first-name" name="firstName" required>
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" placeholder="Optional or use initials">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn">Submit Booking</button>
+
+      <!-- Booking Details -->
+      <div class="form-section">
+        <h3>Booking Details</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="service">Service Type *</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service...</option>
+              <option value="30min">30 Minutes - $220</option>
+              <option value="1hour">1 Hour - $320</option>
+              <option value="2hour">2 Hours - $620</option>
+              <option value="overnight">Overnight Stay</option>
+              <option value="weekend">Weekend Getaway</option>
+              <option value="event">Event Escorting</option>
+              <option value="couples">Couples Experience</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="date">Preferred Date *</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-field">
+            <label for="time">Preferred Time *</label>
+            <select id="time" name="time" required>
+              <option value="">Select time...</option>
+              <option value="morning">Morning (9AM - 12PM)</option>
+              <option value="afternoon">Afternoon (12PM - 5PM)</option>
+              <option value="evening">Evening (5PM - 9PM)</option>
+              <option value="late">Late Evening (9PM+)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="location">Location</label>
+            <select id="location" name="location">
+              <option value="">Select location...</option>
+              <option value="incall">My Location (Reno)</option>
+              <option value="outcall-reno">Your Location (Reno Area)</option>
+              <option value="outcall-travel">Travel (Additional Fees)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="form-section">
+        <h3>Additional Information</h3>
+        <div class="form-field">
+          <label for="message">Special Requests or Questions</label>
+          <textarea id="message" name="message" rows="4" placeholder="Please share any special requests, questions, or additional details about your booking..."></textarea>
+        </div>
+        
+        <div class="form-field checkbox-field">
+          <input type="checkbox" id="screening" name="screening" required>
+          <label for="screening">I understand that screening may be required and agree to provide requested verification *</label>
+        </div>
+        
+        <div class="form-field checkbox-field">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the booking terms and understand all services are for companionship only *</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Booking Request</button>
+      
+      <p class="form-note">
+        * Required fields. All inquiries are confidential and will receive a response within 24 hours. 
+        Booking confirmation subject to availability and successful screening.
+      </p>
     </form>
-    <div id="booking-status" class="status" style="display:none"></div>
-  </main>
-</div>
-  <!-- Email Capture Form with Special Offer -->
+  </div>
+              </section>
+    
 <!-- Refined Email Capture Form -->
 <form action="https://nikki-squirtss-backend.onrender.com/submit-email" method="POST" style="max-width: 400px; margin: 30px auto; font-family: var(--font-body); background: var(--card); padding: 24px; border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
   <label for="email" style="display: block; font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--text-headings); margin-bottom: 12px;">
