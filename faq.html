@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Nikki Squirtss</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .faq-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px 20px;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .faq-header h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+        
+        .faq-header p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .faq-item {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px var(--glow-color);
+        }
+        
+        .faq-question {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .faq-question::before {
+            content: "Q:";
+            margin-right: 10px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .faq-answer {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer strong {
+            color: var(--accent);
+        }
+        
+        .faq-answer a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            transition: opacity 0.3s ease;
+        }
+        
+        .faq-answer a:hover {
+            opacity: 0.7;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent), #9b3b74);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-item {
+                padding: 20px;
+            }
+            
+            .faq-question {
+                font-size: 1.15rem;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="topnav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div style="font-weight:700;color:var(--accent)">NIKKI SQUIRTSS</div>
+            <div class="nav-links" role="navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="faq.html" class="active">FAQ</a>
+                <a href="booking.html" class="cta">Booking</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="faq-container">
+        
+        <!-- Header -->
+        <div class="faq-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Everything you need to know about booking time with me. Have another question? Feel free to reach out!</p>
+        </div>
+
+        <!-- FAQ Items -->
+        <div class="faq-item">
+            <h3 class="faq-question">How do I book you for a date?</h3>
+            <div class="faq-answer">
+                <p>That's easy! Please use my <a href="booking.html">booking form</a>, which will ask all the questions necessary to submit an inquiry. I'll respond within 24 hours with available dates and screening requirements.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">What is your screening process?</h3>
+            <div class="faq-answer">
+                <p>Safety is my top priority. I require verification through one of the following methods:</p>
+                <p>• <strong>Employment verification</strong> (LinkedIn + work email or business card)<br>
+                • <strong>Provider references</strong> (2 recent references from established companions)<br>
+                • <strong>ID verification</strong> through trusted verification sites like P411 or Tryst</p>
+                <p>All information is kept strictly confidential and deleted after verification.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">How should I prepare for a date with you?</h3>
+            <div class="faq-answer">
+                <p>What matters most to me is mutual respect for one another's time and bodies. I will be freshly showered and looking my best for our date, and I expect the same from you!</p>
+                <p>Please arrive on time (punctuality is incredibly important to me), well-groomed, and bring my donation in an unsealed envelope. That's it! I'll take care of the rest.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">What can I expect at the beginning of our session?</h3>
+            <div class="faq-answer">
+                <p>I know first meetings can feel a little nerve-wracking, so here's what to expect:</p>
+                <p>I'll greet you at the door with a warm smile and invite you in. After some brief conversation to break the ice, I'll ask you to place the donation on the dresser. I'll then excuse myself to freshen up and give you a moment to get comfortable. When I return, the real fun begins! 😊</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">Do you travel?</h3>
+            <div class="faq-answer">
+                <p>Yes! I'm available for outcalls throughout the Reno/Tahoe area. I also accept travel dates to other cities with sufficient notice (at least one week) and travel expenses covered.</p>
+                <p>For extended travel dates, I require a deposit and enjoy exploring new cities with generous companions who want to show me a good time!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">Where are you located?</h3>
+            <div class="faq-answer">
+                <p>I'm based in <strong>Reno, Nevada</strong> and see clients at my private, discreet incall location or at upscale hotels for outcalls. I can also visit your home or hotel with proper verification.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">What does GFE mean to you?</h3>
+            <div class="faq-answer">
+                <p>My Girlfriend Experience (GFE) style is genuine, passionate, and affectionate. I'm naturally warm and love connecting with people, so you'll find me to be engaging in conversation, attentive to your needs, and enthusiastic about our time together.</p>
+                <p>Expect lots of kissing, cuddling, laughter, and genuine intimacy. I'm not a clock-watcher—when you're with me, you have my full, undivided attention. That's why so many of my clients become regulars who return month after month!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">Do you offer couples sessions?</h3>
+            <div class="faq-answer">
+                <p>Absolutely! I love meeting couples and creating memorable experiences for both partners. My rates for couples dates are slightly higher to reflect the additional time and attention required. Please inquire through the booking form for specific rates.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">What forms of payment do you accept?</h3>
+            <div class="faq-answer">
+                <p>I accept <strong>cash only</strong> for in-person dates. The donation should be placed in an unsealed envelope and presented at the beginning of our session. For deposits on travel dates or extended bookings, I accept gift cards from major retailers.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">What is your cancellation policy?</h3>
+            <div class="faq-answer">
+                <p>Life happens, I understand! If you need to cancel or reschedule, please give me at least <strong>24 hours notice</strong>. Last-minute cancellations (less than 24 hours) or no-shows will result in being blocked from future bookings.</p>
+                <p>For deposited appointments, cancellations with less than 48 hours notice forfeit the deposit.</p>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Book?</h2>
+            <p>Don't see your question answered here? Reach out and I'll be happy to help!</p>
+            <a href="booking.html" class="cta-button">Request Booking Now</a>
+        </div>
+
+    </main>
+      <footer>
+  <div class="footer-container">
+    
+    <!-- Social Media Links -->
+    <div class="footer-section social-section">
+      <h3>Connect With Me</h3>
+      <div class="social-icons">
+        <a href="https://twitter.com/nikkisquirtss" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+<a href="https://reddit.com/user/Nikki_Squirtss" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+    </svg>
+</a>
+<a href="https://fansly.com/nikki_squirtss" target="_blank" rel="noopener noreferrer" aria-label="Fansly">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+</a>
+        <a href="mailto:nicolehayley69@proton.me" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Verification Badges -->
+    <div class="footer-section badges-section">
+      <h3>Verified On</h3>
+      <div class="verification-badges">
+        <a href="https://tryst.link/escort/nikki-s" target="_blank" rel="noopener">
+          <img src="tryst-badge.png" alt="Verified on Tryst.link" loading="lazy">
+        </a>
+        <a href="https://eros.com/your_profile" target="_blank" rel="noopener">
+          <img src="eros-badge.png" alt="Verified on Eros" loading="lazy">
+        </a>
+        <a href="https://slixa.com/your_profile" target="_blank" rel="noopener">
+          <img src="slixa-badge.png" alt="Verified on Slixa" loading="lazy">
+        </a>
+        <a href="https://privatedelights.ch/your_profile" target="_blank" rel="noopener">
+          <img src="pd-badge.png" alt="Verified on Private Delights" loading="lazy">
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section links-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html">Services & Rates</a></li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section contact-section">
+      <h3>Get In Touch</h3>
+      <p><strong>Location:</strong> Reno, Nevada</p>
+      <p><strong>Email:</strong> <a href="mailto:nikki@nikkisquirtss.com">nikki@nikkisquirtss.com</a></p>
+      <p><strong>Available:</strong> By Appointment Only</p>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 Nikki Squirtss. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <p class="disclaimer">For entertainment purposes only. All services are for companionship. Legal in all 50 states.</p>
+  </div>
+      </footer>
+
+</body>
+</html>
