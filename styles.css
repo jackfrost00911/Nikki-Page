@@ -161,22 +161,88 @@ nav.topnav {
 .rates-row { display: flex; justify-content: space-between; padding: 12px; border-radius: 10px; background: var(--soft); margin-bottom: 8px; font-weight: 600; }
 
 /* 8. Blog Section */
-.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.post .meta { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; font-weight: 600; }
-.post .excerpt { color: var(--muted); }
-.readmore { color: var(--accent); text-decoration: none; font-weight: 600; cursor: pointer; }
-.readmore:hover { text-decoration: underline; }
-.full-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.7s ease-in-out, padding-top 0.7s ease, margin-top 0.7s ease;
-  color: var(--muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
-.full-content.expanded {
-  margin-top: 16px;
-  padding-top: 16px;
-  max-height: 1000px; /* Large enough to fit content */
+
+.post .meta {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.post h4 {
+  margin: 10px 0;
+  color: var(--text-headings);
+}
+
+.post .excerpt {
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+
+.post .readmore {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.post .readmore:hover {
+  text-decoration: underline;
+}
+
+/* Hidden by default */
+.post .full-content {
+  display: none;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Show when expanded */
+.post.expanded .full-content {
+  display: block;
+}
+
+/* Hide excerpt and read more when expanded */
+.post.expanded .excerpt {
+  display: none;
+}
+
+.post.expanded .readmore {
+  display: none;
+}
+
+/* Style h5 headings in blog content */
+.post .full-content h5 {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin: 25px 0 15px 0;
+  font-weight: 600;
+}
+
+/* Style lists in blog content */
+.post .full-content ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.post .full-content li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Style paragraphs in blog content */
+.post .full-content p {
+  margin-bottom: 15px;
 }
 
 /* 9. Gallery Section */
