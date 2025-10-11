@@ -653,3 +653,19 @@ footer {
     text-align: center;
   }
 }
+
+ <style>
+    
+    .post .full-content {
+      display: none;
+    }
+    .post.expanded .full-content {
+      display: block;
+    }
+    .post.expanded .excerpt {
+      display: none;
+    }
+    .post.expanded .readmore {
+      display: none;
+    }
+  </style>
